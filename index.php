@@ -18,5 +18,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     //hallo
+    '/' => (new HomeController())->home(),
     
+    'trangchu' => (new HomeController())->trangChu()
 };
