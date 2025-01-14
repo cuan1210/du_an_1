@@ -23,7 +23,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=/' ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -32,7 +32,7 @@
           </li>
               
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . '/?act=danh-muc' ?>" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Danh mục sản phẩm
@@ -41,7 +41,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . '/?act=san-pham' ?>" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="nav-link">
             <i class="nav-icon fas fa-mobile-alt"></i>
               <p>
                 Sản phẩm
@@ -50,7 +50,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . '/?act=don-hang' ?>" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
             <i class="nav-icon fas fa-mobile-alt"></i>
               <p>
                 Sản phẩm
