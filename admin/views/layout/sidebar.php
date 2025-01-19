@@ -55,6 +55,25 @@
               <p>Sản phẩm</p>
             </a>
           </li>
+          <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p style="color: white;">Quản Lý Người Dùng</p>
+            <i class="fas fa-angle-left"></i>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= BASE_URL_ADMIN . '/?act=list-tai-khoan-quan-tri' ?>" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p style="color: white;">Tài khoản quản trị viên</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= BASE_URL_ADMIN . '/?act=list-tai-khoan-khach-hang' ?>" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p style="color: white;">Tài khoản khách hàng</p>
+              </a>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
