@@ -32,6 +32,8 @@ match ($act) {
     'xoa-danh-muc' => (new AdminDanhMucController())->xoaDanhMuc(),
 
 
+    // Rount Quản Lý Tài Khoản
+
     'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhSachQuanTri(),
     'from-them-quan-tri' => (new AdminTaiKhoanController())->fromAddQuanTri(),
     'them-quan-tri' => (new AdminTaiKhoanController())->themQuanTri(),
@@ -55,6 +57,7 @@ match ($act) {
     'sua-san-pham' => (new AdminSanPhamController())->suaSanPham(),
     'xoa-san-pham' => (new AdminSanPhamController())->xoaSanPham(),
     'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
+
 
 
 };
