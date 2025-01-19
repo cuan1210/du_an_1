@@ -1,8 +1,12 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link text-center">
-      <span class="brand-text font-weight-light">StorePhone</span>
+<div class="navbar-brand-box" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top:7px;">
+    <a href="#"class="logo logo-light">
+        <span class="logo-lg mt-4">
+            <h1 class="display-7 mt-4" style="color: #ffffff; display: inline; font-size: 33px;">Phone</h1>
+            <h1 class="display-7 mt-4" style="color: #ff0000; display: inline; font-size: 33px;">Store</h1>
+        </span>
     </a>
+</div>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -34,27 +38,21 @@
           <li class="nav-item">
             <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>
-                Danh mục sản phẩm
-              </p>
+              <p>Quản lý danh mục</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="nav-link">
-            <i class="nav-icon fas fa-mobile-alt"></i>
-              <p>
-                Sản phẩm
-              </p>
+            <i class="nav-icon fas fa-cube"></i>
+              <p>Quản lý sản phẩm</p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
             <i class="nav-icon fas fa-mobile-alt"></i>
-              <p>
-                Sản phẩm
-              </p>
+              <p>Sản phẩm</p>
             </a>
           </li>
         </ul>
