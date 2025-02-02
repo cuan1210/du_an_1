@@ -50,9 +50,9 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
-            <i class="nav-icon fas fa-mobile-alt"></i>
-              <p>Sản phẩm</p>
+            <a href="<?= BASE_URL_ADMIN . '?act=quan-ly-don-hang' ?>" class="nav-link">
+            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+              <p>Quản lý đơn hàng</p>
             </a>
           </li>
           <li class="nav-item">

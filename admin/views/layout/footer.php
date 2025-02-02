@@ -2,7 +2,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Nhóm 3</b>
     </div>
-    <strong>Website buy phone</strong> 
+    <strong>PhoneStore</strong> 
   </footer>
 
   <!-- Control Sidebar -->
