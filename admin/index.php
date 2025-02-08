@@ -64,4 +64,7 @@ match ($act) {
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
+    // Route quản lí bình luận
+    'quan-ly-binh-luan' => (new AdminBinhLuanController())->danhSachBinhLuan(),
+    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 };
