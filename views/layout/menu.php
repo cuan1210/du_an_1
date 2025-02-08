@@ -25,18 +25,13 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="<?php BASE_URL ?>">Trang chủ</i></a>
+                                            <li><a href="?act=trangchu">Trang chủ</i></a>
 
                                             </li>
                                             <li><a href="#">Giới thiệu</a></li>  
 
-                                            <li><a href="#">Sản phẩm <i
-                                                        class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                </ul>
+                                            <li><a href="?act=list-san-pham">Sản phẩm</a>
+                                                
                                             </li>
 
                                             <li><a href="#">Tin tức</a></li>  

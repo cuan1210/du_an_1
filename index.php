@@ -10,6 +10,8 @@ require_once './controllers/HomeController.php';
 // Require toàn bộ file Models
 require_once './models/Student.php';
 require_once './models/SanPham.php';
+require_once __DIR__ . '/admin/models/AdminDanhMuc.php';
+
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -19,7 +21,10 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new HomeController())->home(),
     
-    'trangchu' => (new HomeController())->trangChu(),
+    'trangchu' => (new HomeController())->home(),
+    'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham($_GET['id'] ?? 0),
+    'list-san-pham' => (new HomeController())->dssanpham(),
 
-    'danh-sach-san-pham' => (new HomeController())->danhSachSanPham(),
+
+    // 'danh-sach-san-pham' => (new HomeController())->danhSachSanPham(),
 };
