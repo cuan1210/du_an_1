@@ -57,7 +57,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=quan-ly-binh-luan' ?>" class="nav-link">
             <i class="nav-icon fas fa-file-invoice-dollar"></i>
               <p>Quản lý bình luận</p>
             </a>

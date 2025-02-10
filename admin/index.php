@@ -10,12 +10,14 @@ require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDashboardController.php';
 require_once './controllers/AdminTaiKhoanController.php';
 require_once './controllers/AdminDonHangController.php';
+require_once './controllers/AdminBinhLuanController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminTaiKhoan.php';
 require_once './models/AdminDonHang.php';
+require_once './models/AdminBinhLuan.php';
 
 
 // Route
@@ -66,5 +68,6 @@ match ($act) {
 
     // Route quản lí bình luận
     'quan-ly-binh-luan' => (new AdminBinhLuanController())->danhSachBinhLuan(),
-    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+    'danh-sach-binh-luan' => (new AdminBinhLuanController())->danhSachDetailBinhLuan(),
+    'xoa-binh-luan' => (new AdminBinhLuanController())->deleteBinhLuan(),
 };

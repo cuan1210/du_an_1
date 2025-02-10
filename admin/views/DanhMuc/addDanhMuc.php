@@ -10,57 +10,59 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Quản lý danh mục sản phẩm</h1>
-        </div>
-      </div><!-- /.container-fluid -->
-  </section>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Quản lý danh mục sản phẩm</h1>
+                </div>
+            </div><!-- /.container-fluid -->
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Thêm danh mục sản phẩm</h3>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Thêm danh mục sản phẩm</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="<?= BASE_URL_ADMIN . '?act=them-danh-muc' ?>" method="POST">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Tên danh mục</label>
+                                    <input type="text" class="form-control" name="ten_danh_muc"
+                                        placeholder="Nhập tên danh mục" fdprocessedid="xsawpt">
+                                    <?php if(isset($errors['ten_danh_muc'])){ ?>
+                                    <p class="text-danger"><?= $errors['ten_danh_muc'] ?></p>
+                                    <?php  } ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    <input type="text" class="form-control" name="mo_ta" placeholder="Nhập mô tả"
+                                        fdprocessedid="xsawpt">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary" fdprocessedid="6mz4gp">Thêm danh
+                                    mục</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form action="<?= BASE_URL_ADMIN . '?act=them-danh-muc' ?>" method="POST">
-              <div class="card-body">
-                <div class="form-group">
-                  <label>Tên danh mục</label>
-                  <input type="text" class="form-control" name="ten_danh_muc" placeholder="Nhập tên danh mục"
-                    fdprocessedid="xsawpt">
-                  <?php if(isset($errors['ten_danh_muc'])){ ?>
-                  <p class="text-danger"><?= $errors['ten_danh_muc'] ?></p>
-                  <?php  } ?>
-                </div>
-                <div class="form-group">
-                  <label>Mô tả</label>
-                  <input type="text" class="form-control" name="mo_ta" placeholder="Nhập mô tả" fdprocessedid="xsawpt">
-                </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary" fdprocessedid="6mz4gp">Thêm danh mục</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.card -->
+            <!-- /.row -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 <!-- Footer -->
@@ -69,21 +71,21 @@
 
 <script>
 $(function() {
-  $("#example1").DataTable({
-    "responsive": true,
-    "lengthChange": false,
-    "autoWidth": false,
-    // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-  }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  $('#example2').DataTable({
-    "paging": true,
-    "lengthChange": false,
-    "searching": false,
-    "ordering": true,
-    "info": true,
-    "autoWidth": false,
-    "responsive": true,
-  });
+    $("#example1").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+    });
 });
 </script>
 </body>
