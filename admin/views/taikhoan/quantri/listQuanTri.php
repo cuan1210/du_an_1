@@ -63,16 +63,6 @@
                                     <?php endforeach; ?>
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Họ Tên</th>
-                                        <th>Email</th>
-                                        <th>Số Diện Thoại</th>
-                                        <th>Trạng Thái</th>
-                                        <th>Thao Tác</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

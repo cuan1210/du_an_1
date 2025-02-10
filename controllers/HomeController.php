@@ -3,12 +3,13 @@
 class HomeController
 {
   public $modelSanPham;
-  public $danhMuc;
+  public $modelDanhMuc;
+  // public $modelTaiKhoan;
 
   public function __construct()
   {
-    $this->modelSanPham = new SanPham();
-    $this->danhMuc = new AdminDanhMuc();
+    $this->modelSanPham = new AdminSanPham();
+    $this->modelDanhMuc = new AdminDanhMuc();
   }
 
   public function home()
@@ -22,7 +23,7 @@ class HomeController
     $danhMucId = isset($_GET['danh_muc_id']) ? intval($_GET['danh_muc_id']) : 0;
 
     // Lấy danh sách danh mục
-    $listDanhMuc = $this->danhMuc->getAllDanhMuc();
+    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 
     // Nếu có danh mục -> lấy sản phẩm theo danh mục, nếu không lấy tất cả sản phẩm
     if ($danhMucId > 0) {

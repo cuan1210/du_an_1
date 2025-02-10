@@ -3,11 +3,11 @@ class AdminTaiKhoanController
 {
     public $modelTaiKhoan;
     public $modelDonHang;
-    public $modelSanPham;
+    public $modelBinhLuan;
     public function __construct()
     {
         $this->modelTaiKhoan = new AdminTaiKhoan();
-        $this->modelSanPham = new AdminSanPham();
+        $this->modelBinhLuan = new AdminBinhLuan();
         $this->modelDonHang = new AdminDonHang();
     }
     public function danhSachQuanTri()
@@ -178,7 +178,7 @@ class AdminTaiKhoanController
         $id_khach_hang = $_GET['id_khach_hang'];
         $khachHang = $this->modelTaiKhoan->getDetailTaiKhoan($id_khach_hang);
         $listDonHang = $this->modelDonHang->getDonHangFromKhachHang($id_khach_hang);
-        $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
+        $listBinhLuan = $this->modelBinhLuan->getBinhLuanFromKhachHang($id_khach_hang);
         require_once './views/taikhoan/khachhang/deltailKhachHang.php';
     }
     public function themQuanTri()
