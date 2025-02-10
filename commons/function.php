@@ -74,3 +74,13 @@ function uploadFileAlbum($file, $folderUpload, $key){
 function formatDate($date){
     return date('d-m-Y', strtotime($date));
 }
+
+function checkLoginAdmin()
+{
+    if (!isset($_SESSION['user_admin'])) {
+        $_SESSION['errors'] = "Bạn cần đăng nhập để tiếp tục!";
+        // header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        require_once './views/auth/formLogin.php';
+        exit();
+    }
+}
