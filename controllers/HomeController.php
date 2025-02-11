@@ -34,6 +34,7 @@ class HomeController
     require_once './views/dssanpham.php';
 }
 
+  }
   public function chiTietSanPham()
   {
     $id = $_GET['id_san_pham'];
