@@ -28,15 +28,15 @@
                                             <li><a href="?act=trangchu">Trang chủ</i></a>
 
                                             </li>
-                                            <li><a href="#">Giới thiệu</a></li>  
+                                            <li><a href="#">Giới thiệu</a></li>
 
                                             <li><a href="?act=list-san-pham">Sản phẩm</a>
-                                                
+
                                             </li>
 
-                                            <li><a href="#">Tin tức</a></li>  
+                                            <li><a href="#">Tin tức</a></li>
 
-                                            <li><a href="#">Liên hệ</a></li>  
+                                            <li><a href="#">Liên hệ</a></li>
 
                                         </ul>
                                     </nav>
@@ -54,21 +54,45 @@
                                     <button class="search-trigger d-xl-none d-lg-block"><i
                                             class="pe-7s-search"></i></button>
                                     <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhập tên sản phẩm"
-                                            class="header-search-field">
+                                        <input type="text" placeholder="Nhập tên sản phẩm" class="header-search-field">
                                         <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                     </form>
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
+                                        <label for="">
+                                            <?php if (isset($_SESSION['user_clinet'])) {
+                                            echo $_SESSION['user_clinet'];
+                                        } ?>
+                                        </label>
                                         <li class="user-hover">
                                             <a href="#">
                                                 <i class="pe-7s-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">Đăng nhập</a></li>
-                                                <li><a href="login-register.html">Đăng ký</a></li>
-                                                <li><a href="my-account.html">Tài khoản</a></li>
+                                                <?php if (!isset($_SESSION['user_clinet'])) { ?>
+                                                <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng Nhập</a></li>
+                                                <li><a href="<?= BASE_URL . '/?act=register' ?>">Đăng Ký</a></li>
+                                                <?php } else { ?>
+                                                <li><a href="<?= BASE_URL . '/?act=form-sua-thong-tin' ?>">Tài Khoản</a>
+                                                </li>
+                                                <li><a href="<?= BASE_URL . '/?act=lich-su-mua-hang' ?>">Đơn Hàng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="confirmLogout()">Đăng xuất</a>
+                                                </li>
+                                                <script>
+                                                function confirmLogout() {
+                                                    let confirmAction = confirm(
+                                                        "Bạn có chắc chắn muốn đăng xuất không?");
+                                                    if (confirmAction) {
+                                                        window.location.href =
+                                                        "<?= BASE_URL . '/?act=logout-clinet' ?>";
+                                                    }
+                                                }
+                                                </script>
+
+                                                <?php } ?>
                                             </ul>
                                         </li>
                                         <li>

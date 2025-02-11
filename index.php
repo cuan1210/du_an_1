@@ -11,6 +11,7 @@ require_once './controllers/HomeController.php';
 require_once './models/Student.php';
 require_once './models/SanPham.php';
 require_once __DIR__ . '/admin/models/AdminDanhMuc.php';
+require_once './models/TaiKhoan.php';
 
 
 // Route
@@ -25,4 +26,11 @@ match ($act) {
     'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham($_GET['id'] ?? 0),
     'list-san-pham' => (new HomeController())->dssanpham(),
     // 'danh-sach-san-pham' => (new HomeController())->danhSachSanPham(),
+
+    //đăng kí đăng nhập client
+    'login' => (new HomeController())->formlogin(),
+    'check-login' => (new HomeController())->postLogin(),
+    'register' => (new HomeController())->formRegister(),
+    'check-register' => (new HomeController())->postRegister(),
+    'logout-clinet' => (new HomeController())->Logout(),
 };
