@@ -113,4 +113,21 @@ class AdminDonHang {
             echo "lỗi" . $e->getMessage();
         }
     }
+
+    public function tongThuNhap(){
+        try {
+            $sql = 'SELECT SUM(tong_tien) as tong_thu_nhap
+            FROM don_hangs
+            WHERE trang_thai_id = 9 
+            ';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC)['tong_thu_nhap'] ?? 0;
+        } catch (Exception $e) {
+            echo "lỗi" . $e->getMessage();
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Nhóm 3</b>
+      <b>Nhóm 3-Dự án1</b>
     </div>
     <strong>PhoneStore</strong> 
   </footer>

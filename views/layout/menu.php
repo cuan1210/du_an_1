@@ -11,7 +11,7 @@
                         <!-- start logo area -->
                         <div class="col-lg-2">
                             <div class="logo">
-                                <a href="<?php BASE_URL ?>">
+                                <a href="<?= BASE_URL . '?act=trangchu' ?>">
                                     <img src="assets/img/logo/phone.png" alt="Brand Logo">
                                 </a>
                             </div>

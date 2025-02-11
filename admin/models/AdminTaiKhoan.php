@@ -155,4 +155,20 @@ class AdminTaiKhoan
             return "Lỗi hệ thống: " . $e->getMessage();
         }
     }
+
+    public function getAllTaiKhoanThongKe()
+    {
+        try {
+
+            $sql = "SELECT * FROM tai_khoans";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
 }

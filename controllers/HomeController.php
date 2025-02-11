@@ -4,7 +4,6 @@ class HomeController
 {
   public $modelSanPham;
   public $modelDanhMuc;
-  // public $modelTaiKhoan;
 
   public function __construct()
   {
@@ -34,7 +33,6 @@ class HomeController
 
     require_once './views/dssanpham.php';
 }
-
 
   public function chiTietSanPham()
   {

@@ -81,8 +81,8 @@ class AdminTaiKhoanController
 
             // Kiểm tra nếu tài khoản tồn tại
             if ($tai_khoan) {
-                // Đặt lại mật khẩu mặc định là '123@123ab' đã được mã hóa
-                $new_password = '123@123ab';
+                // Đặt lại mật khẩu mặc định là '123456' đã được mã hóa
+                $new_password = '123456';
                 $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
 
                 // Cập nhật mật khẩu trong cơ sở dữ liệu

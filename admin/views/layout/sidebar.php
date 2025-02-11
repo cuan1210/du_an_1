@@ -16,7 +16,7 @@
           <img src="./assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nguyễn Hồng Quân</a>
+          <h4><a href="<?= BASE_URL_ADMIN ?>" class="d-block">Quản lý admin</a></h4>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
             <a href="<?= BASE_URL_ADMIN . '?act=/' ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Thống kê
               </p>
             </a>
           </li>
@@ -82,12 +82,12 @@
                 <p style="color: white;">Tài khoản khách hàng</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="<?= BASE_URL_ADMIN . '/?act=form-sua-thong-tin-ca-nhan-quan-tri' ?>" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p style="color: white;">Tài khoản cá nhân</p>
-              </a>
-            </li>
+              <!-- <li class="nav-item">
+                <a href="<?= BASE_URL_ADMIN . '/?act=form-sua-thong-tin-ca-nhan-quan-tri' ?>" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p style="color: white;">Tài khoản cá nhân</p>
+                </a>
+              </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
