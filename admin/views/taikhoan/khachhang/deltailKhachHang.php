@@ -127,13 +127,10 @@
                                     <td><?= $binhLuan['ngay_dang'] ?></td>
                                     <td><?= $binhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn'?></td>
                                     <td>
-                                        <form action="<?= BASE_URL_ADMIN . '/?act=update-trang-thai-binh-luan' ?>" method="POST">
-                                            <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
-                                            <input type="hidden" name="name_view" value="detail_khach">
-                                            <button onclick="return confirm('Bạn có muốn ẩn bình luận này không?')" class="btn btn-danger">
-                                                <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn' ?>
-                                            </button>
-                                        </form>
+                                        <a
+                                            href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhLuan['id']  ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">
+                                            Xóa bình luận
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>

@@ -3,11 +3,11 @@ class AdminTaiKhoanController
 {
     public $modelTaiKhoan;
     public $modelDonHang;
-    public $modelSanPham;
+    public $modelBinhLuan;
     public function __construct()
     {
         $this->modelTaiKhoan = new AdminTaiKhoan();
-        $this->modelSanPham = new AdminSanPham();
+        $this->modelBinhLuan = new AdminBinhLuan();
         $this->modelDonHang = new AdminDonHang();
     }
     public function danhSachQuanTri()
@@ -178,40 +178,8 @@ class AdminTaiKhoanController
         $id_khach_hang = $_GET['id_khach_hang'];
         $khachHang = $this->modelTaiKhoan->getDetailTaiKhoan($id_khach_hang);
         $listDonHang = $this->modelDonHang->getDonHangFromKhachHang($id_khach_hang);
-        $listBinhLuan = $this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
+        $listBinhLuan = $this->modelBinhLuan->getBinhLuanFromKhachHang($id_khach_hang);
         require_once './views/taikhoan/khachhang/deltailKhachHang.php';
-    }
-    public function formLogin()
-    {
-        require_once './views/auth/formLogin.php';
-        unset($_SESSION['errors']); // Xóa thông báo lỗi sau khi hiển thị
-    }
-    public function login()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            $user = $this->modelTaiKhoan->checkLogin($email, $password);
-
-            if ($user == $email) { // Đăng nhập thành công
-                $_SESSION['user_admin'] = $user;
-                header("Location: " . BASE_URL_ADMIN);
-                exit();
-            } else { // Đăng nhập thất bại, lưu lỗi
-                $_SESSION['errors'] = $user;
-                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-                exit();
-            }
-        }
-    }
-    public function logout()
-    {
-        if (isset($_SESSION['user_admin'])) {
-            unset($_SESSION['user_admin']);
-            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-            exit();
-        }
     }
     public function themQuanTri()
     {
@@ -263,4 +231,40 @@ class AdminTaiKhoanController
             }
         }
     }
+
+    public function formLogin()
+    {
+        require_once './views/auth/formLogin.php';
+        unset($_SESSION['errors']); // Xóa thông báo lỗi sau khi hiển thị
+        deleteSessionError();
+    }
+    public function login()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $user = $this->modelTaiKhoan->checkLogin($email, $password);
+
+            if ($user == $email) { // Đăng nhập thành công
+                $_SESSION['user_admin'] = $user;
+                header("Location: " . BASE_URL_ADMIN);
+                exit();
+            } else { // Đăng nhập thất bại, lưu lỗi
+                $_SESSION['errors'] = $user;
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        }
+    }
+    public function logout()
+    {
+        if (isset($_SESSION['user_admin'])) {
+            unset($_SESSION['user_admin']);
+            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+            exit();
+        }
+    }
+    
+    
 }

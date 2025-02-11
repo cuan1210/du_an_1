@@ -24,7 +24,5 @@ match ($act) {
     'trangchu' => (new HomeController())->home(),
     'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham($_GET['id'] ?? 0),
     'list-san-pham' => (new HomeController())->dssanpham(),
-
-
     // 'danh-sach-san-pham' => (new HomeController())->danhSachSanPham(),
 };

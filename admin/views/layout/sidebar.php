@@ -57,7 +57,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=quan-ly-binh-luan' ?>" class="nav-link">
             <i class="nav-icon fas fa-file-invoice-dollar"></i>
               <p>Quản lý bình luận</p>
             </a>
@@ -80,6 +80,12 @@
               <a href="<?= BASE_URL_ADMIN . '/?act=list-tai-khoan-khach-hang' ?>" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p style="color: white;">Tài khoản khách hàng</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= BASE_URL_ADMIN . '/?act=form-sua-thong-tin-ca-nhan-quan-tri' ?>" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p style="color: white;">Tài khoản cá nhân</p>
               </a>
             </li>
         </ul>

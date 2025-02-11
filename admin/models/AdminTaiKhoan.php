@@ -130,20 +130,28 @@ class AdminTaiKhoan
             $stmt->execute(['email' => $email]);
             $user = $stmt->fetch();
 
-            if ($user && password_verify($mat_khau, $user['mat_khau'])) {
-                if ($user['chuc_vu_id'] == 1) { // Admin role
-                    if ($user['trang_thai'] == 1) { // Active
-                        return $user['email'];
-                    } else {
-                        return "Tài khoản của bạn đã bị khóa! Vui lòng liên hệ quản trị viên.";
-                    }
-                } else {
-                    return "Bạn không có quyền truy cập vào trang Admin!";
-                }
-            } else {
+            if (!$user) {
                 return "Sai email hoặc mật khẩu!";
             }
-        } catch (Exception $e) {
+            
+            // Kiểm tra trạng thái tài khoản trước
+            if ($user['trang_thai'] != 1) {
+                return "Tài khoản của bạn đã bị khóa! Vui lòng liên hệ quản trị viên.";
+            }
+            
+            // Kiểm tra quyền Admin
+            if ($user['chuc_vu_id'] != 1) {
+                return "Bạn không có quyền truy cập vào trang Admin!";
+            }
+            
+            // Kiểm tra mật khẩu sau cùng
+            if (!password_verify($mat_khau, $user['mat_khau'])) {
+                return "Sai email hoặc mật khẩu!";
+            }
+            
+            return true; // Đăng nhập thành công
+            
+        } catch (\Exception $e) {
             return "Lỗi hệ thống: " . $e->getMessage();
         }
     }
