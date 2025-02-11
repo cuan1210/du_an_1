@@ -17,24 +17,24 @@ class HomeController
     require_once './views/home.php';
 
   }
+
   public function dssanpham()
-{
-    $danhMucId = isset($_GET['danh_muc_id']) ? intval($_GET['danh_muc_id']) : 0;
+  {
+      $danhMucId = isset($_GET['danh_muc_id']) ? intval($_GET['danh_muc_id']) : 0;
 
-    // Lấy danh sách danh mục
-    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+      // Lấy danh sách danh mục
+      $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 
-    // Nếu có danh mục -> lấy sản phẩm theo danh mục, nếu không lấy tất cả sản phẩm
-    if ($danhMucId > 0) {
-        $listSanPham = $this->modelSanPham->getListSanPhamDanhMuc($danhMucId);
-    } else {
-        $listSanPham = $this->modelSanPham->getAllSanPham();
-    }
+      // Nếu có danh mục -> lấy sản phẩm theo danh mục, nếu không lấy tất cả sản phẩm
+      if ($danhMucId > 0) {
+          $listSanPham = $this->modelSanPham->getListSanPhamDanhMuc($danhMucId);
+      } else {
+          $listSanPham = $this->modelSanPham->getAllSanPham();
+      }
 
-    require_once './views/dssanpham.php';
-}
-
+      require_once './views/dssanpham.php';
   }
+
   public function chiTietSanPham()
   {
     $id = $_GET['id_san_pham'];
@@ -54,4 +54,5 @@ class HomeController
       exit();
     }
   }
+  
 }
