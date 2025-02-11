@@ -28,15 +28,15 @@
                                             <li><a href="?act=trangchu">Trang chủ</i></a>
 
                                             </li>
-                                            <li><a href="#">Giới thiệu</a></li>  
+                                            <li><a href="#">Giới thiệu</a></li>
 
                                             <li><a href="?act=list-san-pham">Sản phẩm</a>
-                                                
+
                                             </li>
 
-                                            <li><a href="#">Tin tức</a></li>  
+                                            <li><a href="#">Tin tức</a></li>
 
-                                            <li><a href="#">Liên hệ</a></li>  
+                                            <li><a href="#">Liên hệ</a></li>
 
                                         </ul>
                                     </nav>
@@ -53,11 +53,16 @@
                                 <div class="header-search-container">
                                     <button class="search-trigger d-xl-none d-lg-block"><i
                                             class="pe-7s-search"></i></button>
-                                    <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhập tên sản phẩm"
-                                            class="header-search-field">
-                                        <button class="header-search-btn"><i class="pe-7s-search"></i></button>
-                                    </form>
+                                            <form action="" method="GET" class="d-flex">
+    <input type="text" name="keyword" class="form-control" 
+        value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>" 
+        placeholder="Tìm kiếm sản phẩm..." required>
+    <button type="submit" class="btn btn-primary ms-2">Search</button>
+</form>
+
+
+
+
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
