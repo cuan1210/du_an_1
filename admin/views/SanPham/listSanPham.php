@@ -60,9 +60,9 @@
                       <td><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng'; ?></td>
                       <td>
                         <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>">
-                          <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                          <button class="btn btn-warning"><i class="far fa-eye"></i></button>
                         </a>
-                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-warning">Sửa</button>
+                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>"><button class="btn btn-primary">Sửa</button>
                         </a>
                         <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>"
                           onclick="return confirm('Bạn có chắc chắn xóa không')"><button class="btn btn-danger">Xóa</button>

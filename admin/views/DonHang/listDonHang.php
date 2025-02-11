@@ -46,7 +46,7 @@
                                         <td>
                                             <a
                                                 href="<?= BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $donHang['id'] ?>"><button
-                                                    class="btn btn-warning">Chi tiết và cập nhật trang thái</button>
+                                                    class="btn btn-primary">Chi tiết và cập nhật trang thái</button>
                                             </a>
                                         </td>
                                     </tr>

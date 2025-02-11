@@ -53,13 +53,11 @@
                                                 </a>
                                                 <a
                                                     href="<?= BASE_URL_ADMIN . '/?act=from-edit-khach-hang&id_khach_hang=' . $khachHang['id'] ?>">
-                                                    <button class="btn btn-warning"><i
-                                                            class="fas fa-tools"></i></button>
+                                                    <button class="btn btn-warning">Sửa</button>
                                                 </a>
                                                 <a href="<?= BASE_URL_ADMIN . '/?act=reset-password&id_khach_hang=' . $khachHang['id'] ?>"
                                                     onclick="return confirm('Bạn Có Muốn Cài Lại Mật Khẩu Tài Khoản Này Không ?')">
-                                                    <button class="btn btn-danger"><i
-                                                            class="far fa-circle"></i></button>
+                                                    <button class="btn btn-danger">Reset</button>
                                                 </a>
                                             </div>
                                         </td>

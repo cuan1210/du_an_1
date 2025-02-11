@@ -57,12 +57,10 @@ match ($act) {
     'edit-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
 
-
      // route auth
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
     'check-login-admin' => (new AdminTaiKhoanController())->login(),
     'logout-admin' => (new AdminTaiKhoanController())->logout(),
-
 
     // Route quản lí sản phẩm
     'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
