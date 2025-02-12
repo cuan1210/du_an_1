@@ -50,7 +50,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" fdprocessedid="6mz4gp">Thêm danh
+                                <button type="submit" class="btn btn-primary" fdprocessedid="6mz4gp">Sửa danh
                                     mục</button>
                             </div>
                         </form>

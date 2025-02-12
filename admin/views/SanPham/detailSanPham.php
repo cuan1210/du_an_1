@@ -31,11 +31,6 @@
             <div class="col-12">
               <img style="width:400px; height: 400px" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" class="product-image" alt="Product Image">
             </div>
-            <div class="col-12 product-image-thumbs">
-              <?php foreach ($listAnhSanPham as $key => $anhSP) : ?>
-                <div class="product-image-thumb <?= $anhSP[$key] == 0 ? 'active' : '' ?>"><img src="<?= BASE_URL . $anhSP['link_hinh_anh']; ?>"></div>
-              <?php endforeach ?>
-            </div>
           </div>
           <div class="col-12 col-sm-6">
             <h3 class="my-3">Tên sản phẩm: <?= $sanPham['ten_san_pham'] ?></h3>
@@ -51,46 +46,7 @@
 
 
           </div>
-          <div class="col-12">
-            <h2>Bình luận của sản phẩm</h2>
-            <div>
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Người bình luận</th>
-                            <th>Nội dung</th>
-                            <th>Ngày bình luận</th>
-                            <th>Trạng thái</th>
-                            <th>Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($listBinhLuan as $key => $binhLuan): ?>
-
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td>
-                                <a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan['tai_khoan_id'] ?>">
-                                    <?= $binhLuan['ho_ten'] ?>
-                                </a>
-                            </td>
-                            <td><?= $binhLuan['noi_dung'] ?></td>
-                            <td><?= $binhLuan['ngay_dang'] ?></td>
-                            <td><?= $binhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn'?></td>
-                            <td>
-                              <a
-                                  href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhLuan['id']  ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">
-                                  Xóa bình luận
-                              </a>
-                            </td>
-                        </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                </table>
-            </div>
-                </div>
-  
+          
         </div>
         
       <!-- /.card-body -->

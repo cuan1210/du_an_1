@@ -1,4 +1,4 @@
-    <!-- Start Header Area -->
+<!-- Start Header Area -->
     <header class="header-area header-wide">
         <!-- main header start -->
         <div class="main-header d-none d-lg-block">
@@ -19,7 +19,7 @@
                         <!-- start logo area -->
 
                         <!-- main menu area start -->
-                        <div class="col-lg-6 position-static">
+                        <div class="col-lg-5 position-static">
                             <div class="main-menu-area">
                                 <div class="main-menu">
                                     <!-- main menu navbar start -->
@@ -47,23 +47,25 @@
                         <!-- main menu area end -->
 
                         <!-- mini cart area start -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <div
                                 class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
                                 <div class="header-search-container">
                                     <button class="search-trigger d-xl-none d-lg-block"><i
                                             class="pe-7s-search"></i></button>
-                                    <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhập tên sản phẩm" class="header-search-field">
-                                        <button class="header-search-btn"><i class="pe-7s-search"></i></button>
+                                    <form action="" method="GET" class="d-flex">
+                                        <input type="text" name="keyword" class="form-control"
+                                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>"
+                                            placeholder="Tìm kiếm sản phẩm..." required>
+                                        <button type="submit" class="btn btn-primary ms-2">Search</button>
                                     </form>
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
                                         <label for="">
                                             <?php if (isset($_SESSION['user_clinet'])) {
-                                            echo $_SESSION['user_clinet'];
-                                        } ?>
+                                                echo $_SESSION['user_clinet'];
+                                            } ?>
                                         </label>
                                         <li class="user-hover">
                                             <a href="#">
@@ -71,26 +73,26 @@
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_clinet'])) { ?>
-                                                <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng Nhập</a></li>
-                                                <li><a href="<?= BASE_URL . '/?act=register' ?>">Đăng Ký</a></li>
+                                                    <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng Nhập</a></li>
+                                                    <li><a href="<?= BASE_URL . '/?act=register' ?>">Đăng Ký</a></li>
                                                 <?php } else { ?>
-                                                <li><a href="<?= BASE_URL . '/?act=form-sua-thong-tin' ?>">Tài Khoản</a>
-                                                </li>
-                                                <li><a href="<?= BASE_URL . '/?act=lich-su-mua-hang' ?>">Đơn Hàng</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" onclick="confirmLogout()">Đăng xuất</a>
-                                                </li>
-                                                <script>
-                                                function confirmLogout() {
-                                                    let confirmAction = confirm(
-                                                        "Bạn có chắc chắn muốn đăng xuất không?");
-                                                    if (confirmAction) {
-                                                        window.location.href =
-                                                        "<?= BASE_URL . '/?act=logout-clinet' ?>";
-                                                    }
-                                                }
-                                                </script>
+                                                    <li><a href="<?= BASE_URL . '/?act=form-sua-thong-tin' ?>">Tài Khoản</a>
+                                                    </li>
+                                                    <li><a href="<?= BASE_URL . '/?act=lich-su-mua-hang' ?>">Đơn Hàng</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" onclick="confirmLogout()">Đăng xuất</a>
+                                                    </li>
+                                                    <script>
+                                                        function confirmLogout() {
+                                                            let confirmAction = confirm(
+                                                                "Bạn có chắc chắn muốn đăng xuất không?");
+                                                            if (confirmAction) {
+                                                                window.location.href =
+                                                                    "<?= BASE_URL . '/?act=logout-clinet' ?>";
+                                                            }
+                                                        }
+                                                    </script>
 
                                                 <?php } ?>
                                             </ul>
