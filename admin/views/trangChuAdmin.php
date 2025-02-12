@@ -86,7 +86,7 @@
                                                 <?php
                                                   $tongKhachHang = 0;
                                                   foreach ($listTaiKhoan as $khachHang): 
-                                                    if ($khachHang['trang_thai'] == 2) {
+                                                    if (($khachHang['trang_thai'] == 1) && ($khachHang['chuc_vu_id'] == 2)) {
                                                       $tongKhachHang++;
                                                     }
                                                   endforeach;

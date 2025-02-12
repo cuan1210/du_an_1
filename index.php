@@ -12,7 +12,7 @@ require_once './models/Student.php';
 require_once './models/SanPham.php';
 require_once __DIR__ . '/admin/models/AdminDanhMuc.php';
 require_once './models/TaiKhoan.php';
-
+require_once './models/GioHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -33,4 +33,12 @@ match ($act) {
     'register' => (new HomeController())->formRegister(),
     'check-register' => (new HomeController())->postRegister(),
     'logout-clinet' => (new HomeController())->Logout(),
+
+    // Giỏ hàng
+    'them-gio-hang' => (new HomeController())->addGioHang(),
+    'gio-hang' => (new HomeController())->gioHang(),
+
+    // Thanh toán
+    'thanh-toan' => (new HomeController())->thanhToan(),
+
 };

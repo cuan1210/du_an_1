@@ -23,6 +23,13 @@
     <!-- login register wrapper start -->
     <div class="login-register-wrapper section-padding">
         <div class="container" style="max-width: 500px;">
+            <!-- Thông báo hiển thị -->
+            <?php 
+                if (isset($_SESSION['message'])) {
+                    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+                    unset($_SESSION['message']); 
+                }
+            ?>
             <div class="member-area-from-wrap">
                 <div class="row">
                     <!-- Login Content Start -->
