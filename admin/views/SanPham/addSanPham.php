@@ -66,12 +66,6 @@
                 </div>
 
                 <div class="form-group col-6">
-                  <label>Album hình ảnh</label>
-                  <label class="form-label">Album hình ảnh</label>
-                  <input type="file" class="form-control" name="img_array[]" multiple>
-                </div>
-
-                <div class="form-group col-6">
                   <label>Số lượng</label>
                   <input type="number" class="form-control" name="so_luong" placeholder="Nhập số lượng">
                   <?php if (isset($_SESSION['error']['so_luong'])) { ?>

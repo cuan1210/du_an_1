@@ -96,7 +96,6 @@
                             <div class="col-lg-12">
                                 <div class="product-review-info">
                                     <ul class="nav review-tab">
-
                                         <li>
                                             <a class="active" data-bs-toggle="tab" href="#tab_three">Bình luận
                                                 (<?= $countComment ?>)</a>
