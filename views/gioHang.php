@@ -100,7 +100,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn btn-sqr d-block">Thanh toán</a>
+                            <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Thanh toán</a>
                         </div>
                     </div>
                 </div>
