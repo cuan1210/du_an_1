@@ -50,6 +50,8 @@ class HomeController
     $sanPham = $this->modelSanPham->getDetailSanPham($id);
     $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
     $listSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamDanhMuc($sanPham['danh_muc_id']);
+    $listSanPhamLienQuan = $this->modelSanPham->getListSanPhamLienQuan($sanPham['danh_muc_id'], $id);
+
 
       if ($sanPham) {
       require_once './views/detailSanPham.php';
