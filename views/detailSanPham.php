@@ -104,16 +104,6 @@
                                     <div class="tab-content reviews-tab">
                                         <div class="tab-pane fade show active" id="tab_three">
                                             <?php foreach ($listBinhLuan as $binhLuan) { ?>
-                                            <div class="total-reviews">
-                                                <div class="rev-avatar">
-                                                    <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="user profile">
-                                                </div>
-
-                                                <div class="review-box">
-                                                    <div class="post-author">
-                                                        <p><span><?= $binhLuan['ho_ten'] ?> -
-                                                            </span><?= $binhLuan['ngay_dang'] ?></p>
-                                            <?php foreach ($listBinhLuan as $binhLuan): ?>
                                                 <div class="total-reviews">
                                                     <div class="rev-avatar">
                                                         <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="">
@@ -152,9 +142,6 @@
                                                 <p class="text-danger text-center">Vui lòng đăng nhập để gửi bình luận</p><br>
                                             <?php } else { ?>
                                             <form action="<?= BASE_URL . '?act=gui-binh-luan' ?>" method="POST" class="review-form">
-
-                                            <?php endforeach ?>
-                                            <form action="#" class="review-form">
                                                 <div class="form-group row">
                                                     <div class="col">
                                                         <input type="hidden" name="tai_khoan_id" value="<?= $_SESSION['user_client_id'] ?>">
