@@ -95,7 +95,6 @@ class AdminSanPham {
                 ':id' => $san_pham_id
             ]);
 
-            // Lấy id sản phẩm vừa thêm
             return true;
         } catch (Exception $e) {
             echo "lỗi" . $e->getMessage();

@@ -56,13 +56,13 @@
                                     </div>
                                     <div class="price-box">
                                         <?php if ($sanPham['gia_khuyen_mai']) { ?>
-                                        <span
-                                            class="price-regular"><?= formatPrice($sanPham['gia_khuyen_mai']) . ''; ?></span>
-                                        <span
-                                            class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . ''; ?></del></span>
+                                            <span
+                                                class="price-regular"><?= formatPrice($sanPham['gia_khuyen_mai']) . ''; ?></span>
+                                            <span
+                                                class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . ''; ?></del></span>
                                         <?php } else { ?>
-                                        <span
-                                            class="price-regular"><?= formatPrice($sanPham['gia_san_pham']) . ''; ?></span>
+                                            <span
+                                                class="price-regular"><?= formatPrice($sanPham['gia_san_pham']) . ''; ?></span>
                                         <?php } ?>
                                     </div>
                                     <div class="availability">
@@ -105,19 +105,19 @@
 
                                         <div class="tab-pane fade show active" id="tab_three">
                                             <?php foreach ($listBinhLuan as $binhLuan): ?>
-                                            <div class="total-reviews">
-                                                <div class="rev-avatar">
-                                                    <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="">
-                                                </div>
-                                                <div class="review-box">
-
-                                                    <div class="post-author">
-                                                        <p><span><?= $binhLuan['ho_ten'] ?> -
-                                                            </span><?= $binhLuan['ngay_dang'] ?></p>
+                                                <div class="total-reviews">
+                                                    <div class="rev-avatar">
+                                                        <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="">
                                                     </div>
-                                                    <p><?= $binhLuan['noi_dung'] ?></p>
+                                                    <div class="review-box">
+
+                                                        <div class="post-author">
+                                                            <p><span><?= $binhLuan['ho_ten'] ?> -
+                                                                </span><?= $binhLuan['ngay_dang'] ?></p>
+                                                        </div>
+                                                        <p><?= $binhLuan['noi_dung'] ?></p>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             <?php endforeach ?>
                                             <form action="#" class="review-form">
                                                 <div class="form-group row">
@@ -147,6 +147,95 @@
     <!-- page main wrapper end -->
 
     <!-- related products area start -->
+    <!-- related products area start -->
+    <div class="related-products section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h4 class="section-title-text">Sản Phẩm Liên Quan</h4>
+            </div>
+            <div class="row justify-content-center">
+                <?php foreach ($listSanPhamLienQuan as $sanPhamLienQuan) : ?>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="product-item">
+                            <div class="product-thumb position-relative">
+                                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPhamLienQuan['id']; ?>">
+                                    <img src="<?= BASE_URL . $sanPhamLienQuan['hinh_anh']; ?>" alt="<?= $sanPhamLienQuan['ten_san_pham']; ?>" class="img-fluid">
+                                </a>
+
+                            </div>
+                            <div class="product-info text-center">
+                                <h6 class="product-name">
+                                    <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPhamLienQuan['id']; ?>">
+                                        <?= $sanPhamLienQuan['ten_san_pham']; ?>
+                                    </a>
+                                </h6>
+                                <div class="price-box">
+                                    <?php if ($sanPhamLienQuan['gia_khuyen_mai']) { ?>
+                                        <span class="price-regular"><?= formatPrice($sanPhamLienQuan['gia_khuyen_mai']); ?></span>
+                                        <span class="price-old"><del><?= formatPrice($sanPhamLienQuan['gia_san_pham']); ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-regular"><?= formatPrice($sanPhamLienQuan['gia_san_pham']); ?></span>
+                                    <?php } ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .section-title-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6c4d23;
+        }
+
+        .product-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-thumb {
+            position: relative;
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #c4a060;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .price-regular {
+            font-size: 16px;
+            color: #c4a060;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- related products area end -->
+
 
     <!-- related products area end -->
 </main>

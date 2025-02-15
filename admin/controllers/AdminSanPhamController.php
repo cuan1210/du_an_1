@@ -30,7 +30,6 @@ class AdminSanPhamController
     {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Lấy ra dữ liệu
             $ten_san_pham = $_POST['ten_san_pham'] ?? '';
             $gia_san_pham = $_POST['gia_san_pham'] ?? '';
             $gia_khuyen_mai = $_POST['gia_khuyen_mai'] ?? '';
@@ -91,7 +90,7 @@ class AdminSanPhamController
         if ($sanPham) {
             require_once './views/sanpham/editSanPham.php';
             deleteSessionError();
-        } else {
+        }else {
             header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
             exit();
         }
@@ -99,13 +98,9 @@ class AdminSanPhamController
 
     public function suaSanPham()
     {
-        // Hàm này dùng để xử lý thêm dữ liệu
-
-        // Kiểm tra xem dữ liệu có phải đc submit lên không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
             $san_pham_id = $_POST['san_pham_id'] ?? '';
-            // Truy vấn  
+
             $sanPhamOld = $this->modelSanPham->getDetailSanPham($san_pham_id);
             $old_file = $sanPhamOld['hinh_anh']; // Lấy ảnh cũ để phục vụ cho sửa ảnh
             $ten_san_pham = $_POST['ten_san_pham'] ?? '';
@@ -142,30 +137,23 @@ class AdminSanPhamController
             }
 
             $_SESSION['error'] = $errors;
-            // var_dump($errors);die;
-
-            // logic sửa ảnh 
             if (isset($hinh_anh) && $hinh_anh['error'] == UPLOAD_ERR_OK) {
-                // upload ảnh mới lên 
+                //upload ảnhh
                 $new_file = uploadFile($hinh_anh, './uploads/');
-                if (!empty($old_file)) { // Nếu có ảnh cũ thì xóa đi
+                if (!empty($old_file)) { 
                     deleteFile($old_file);
                 }
             } else {
                 $new_file = $old_file;
             }
 
-            // Nếu ko có lỗi thì tiến hành thêm sản phẩm
+            
             if (empty($errors)) {
-                // Nếu ko có lỗi thì tiến hành thêm sản phẩm
-                // var_dump('Oke');
                 $this->modelSanPham->updateSanPham($san_pham_id,$ten_san_pham,$gia_san_pham,$gia_khuyen_mai,$so_luong,$ngay_nhap,$danh_muc_id,$trang_thai,$mo_ta,$new_file
                 );
                 header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
                 exit();
             } else {
-                // Trả về form và lỗi
-                // Đặt chỉ thị xóa session sau khi hiển thị form 
                 $_SESSION['flash'] = true;
                 header("Location: " . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
                 exit();
@@ -178,8 +166,8 @@ class AdminSanPhamController
     $id = $_GET['id_san_pham'];
     $sanPham = $this->modelSanPham->getDetailSanPham($id);
     if ($sanPham) {
-        deleteFile($sanPham['hinh_anh']); // Xóa ảnh đại diện của sản phẩm
-        $this->modelSanPham->destroySanPham($id); // Xóa sản phẩm khỏi database
+        deleteFile($sanPham['hinh_anh']); 
+        $this->modelSanPham->destroySanPham($id); 
     }
     header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
     exit();

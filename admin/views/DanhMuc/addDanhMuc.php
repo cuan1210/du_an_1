@@ -37,7 +37,7 @@
                                     <label>Tên danh mục</label>
                                     <input type="text" class="form-control" name="ten_danh_muc"
                                         placeholder="Nhập tên danh mục" fdprocessedid="xsawpt">
-                                    <?php if(isset($errors['ten_danh_muc'])){ ?>
+                                    <?php if(isset($errors['ten_danh_muc'])){?>
                                     <p class="text-danger"><?= $errors['ten_danh_muc'] ?></p>
                                     <?php  } ?>
                                 </div>
@@ -45,7 +45,7 @@
                                     <label>Mô tả</label>
                                     <input type="text" class="form-control" name="mo_ta" placeholder="Nhập mô tả"
                                         fdprocessedid="xsawpt">
-                                </div>
+                            </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
