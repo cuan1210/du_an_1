@@ -74,6 +74,25 @@ class AdminSanPham
         }
     }
 
+    public function getListSanPhamLienQuan($danh_muc_id, $id_san_pham_hien_tai){
+        try {
+            $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc
+                    FROM san_phams
+                    INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+                    WHERE san_phams.danh_muc_id = :danh_muc_id
+                    AND san_phams.id != :id_san_pham_hien_tai'; // Loại bỏ sản phẩm hiện tại
+    
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':danh_muc_id', $danh_muc_id, PDO::PARAM_INT);
+            $stmt->bindParam(':id_san_pham_hien_tai', $id_san_pham_hien_tai, PDO::PARAM_INT);
+    
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+    
     public function searchSanPhamByName($keyword)
 {
     $sql = "SELECT * FROM san_phams WHERE ten_san_pham LIKE :keyword";

@@ -49,24 +49,25 @@
                             </div>
                             <div class="form-group">
                                 <label for="gia_san_pham">Giá sản phẩm</label>
-                                <input type="number" id="gia_san_pham" name="gia_san_pham" class="form-control" value="<?= $sanPham['gia_san_pham'] ?>">
+                                <input type="number" id="gia_san_pham" name="gia_san_pham" class="form-control"value="<?= $sanPham['gia_san_pham'] ?>">
+
                             </div>
                             <div class="form-group">
                                 <label for="gia_khuyen_mai">Giá khuyến mãi</label>
-                                <input type="number" id="gia_khuyen_mai" name="gia_khuyen_mai" class="form-control" value="<?= $sanPham['gia_khuyen_mai'] ?>">
+                                <input type="number" id="gia_khuyen_mai" name="gia_khuyen_mai"class="form-control" value="<?= $sanPham['gia_khuyen_mai'] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="hinh_anh">Hình ảnh</label>
-                                <input type="file" id="hinh_anh" name="hinh_anh" class="form-control">
-                            </div>
+                                <input type="file" id="hinh_anh" name="hinh_anh"class="form-control">
+                        </div>
                             <div class="form-group">
                                 <label for="so_luong">Số lượng</label>
-                                <input type="number" id="so_luong" name="so_luong" class="form-control" value="<?= $sanPham['so_luong'] ?>">
+                                <input type="number"id="so_luong" name="so_luong" class="form-control" value="<?= $sanPham['so_luong'] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="ngay_nhap">Ngày nhập</label>
                                 <input type="date" id="ngay_nhap" name="ngay_nhap" class="form-control" value="<?= $sanPham['ngay_nhap'] ?>">
-                            </div>
+                             </div>
                             <div class="form-group">
                                 <label for="inputStatus">Danh mục sản phẩm</label>
                                 <select id="inputStatus" name="danh_muc_id" class="form-control custom-select">
