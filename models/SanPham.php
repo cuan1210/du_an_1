@@ -42,15 +42,17 @@ class AdminSanPham
     public function getBinhLuanFromSanPham($id){
         try {
             $sql = 'SELECT binh_luans.*, tai_khoans.ho_ten, tai_khoans.anh_dai_dien
-            FROM binh_luans INNER JOIN tai_khoans ON binh_luans.tai_khoan_id = tai_khoans.id
-            WHERE binh_luans.san_pham_id = :id
+                    FROM binh_luans 
+                    INNER JOIN tai_khoans 
+                    ON binh_luans.tai_khoan_id = tai_khoans.id
+                    WHERE binh_luans.san_pham_id = :id
             ';
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([':id'=>$id]);
 
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo "lỗi" . $e->getMessage();
         }

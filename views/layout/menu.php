@@ -48,28 +48,19 @@
 
                         <!-- mini cart area start -->
                         <div class="col-lg-5">
-                            <div
-                                class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                                <div class="header-search-container">
-                                    <button class="search-trigger d-xl-none d-lg-block"><i
-                                            class="pe-7s-search"></i></button>
-                                    <form action="" method="GET" class="d-flex">
-                                        <input type="text" name="keyword" class="form-control"
-                                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>"
-                                            placeholder="Tìm kiếm sản phẩm..." required>
-                                        <button type="submit" class="btn btn-primary ms-2">Search</button>
-                                    </form>
-                                </div>
-                                <div class="header-configure-area">
+                            <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
+                            <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
-                                        <label for="">
-                                            <?php if (isset($_SESSION['user_clinet'])) {
-                                                echo $_SESSION['user_clinet'];
-                                            } ?>
-                                        </label>
                                         <li class="user-hover">
                                             <a href="#">
-                                                <i class="pe-7s-user"></i>
+                                                <div class="text-center">
+                                                    <i class="pe-7s-user"></i>
+                                                </div>
+                                                <div class="user-email" style="font-size: 14px; color: #333;">
+                                                    <?php if (isset($_SESSION['user_clinet'])) {
+                                                        echo $_SESSION['user_clinet'];
+                                                    } ?>
+                                                </div>
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_clinet'])) { ?>
@@ -83,27 +74,27 @@
                                                     <li>
                                                         <a href="#" onclick="confirmLogout()">Đăng xuất</a>
                                                     </li>
-                                                    <script>
-                                                        function confirmLogout() {
-                                                            let confirmAction = confirm(
-                                                                "Bạn có chắc chắn muốn đăng xuất không?");
-                                                            if (confirmAction) {
-                                                                window.location.href =
-                                                                    "<?= BASE_URL . '/?act=logout-clinet' ?>";
-                                                            }
-                                                        }
-                                                    </script>
-
                                                 <?php } ?>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="<?= BASE_URL ?>?act=gio-hang" class="minicart-btn">
-                                                <i class="pe-7s-shopbag"></i>
+                                                <i class="fa fa-cart-plus"></i>(<?= isset($tongDonHang) ? $tongDonHang : 0 ?>)
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
+
+                                <div class="header-search-container">
+                                    <form action="" method="GET" class="d-flex">
+                                        <input type="text" name="keyword" class="form-control"
+                                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>"
+                                            placeholder="Tìm kiếm sản phẩm..." required>
+                                        <button type="submit" class="btn btn-primary ms-2">Tìm</button>
+                                    </form>
+                                </div>
+
+                                
                             </div>
                         </div>
                         <!-- mini cart area end -->
@@ -116,4 +107,14 @@
         <!-- main header start -->
 
     </header>
+    <script>
+        function confirmLogout() {
+            let confirmAction = confirm(
+                "Bạn có chắc chắn muốn đăng xuất không?");
+            if (confirmAction) {
+                window.location.href =
+                    "<?= BASE_URL . '/?act=logout-clinet' ?>";
+            }
+        }
+    </script>
     <!-- end Header Area -->

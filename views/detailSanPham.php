@@ -13,7 +13,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="shop.html">Sản phẩm</a></li>
+                                <li class="breadcrumb-item"><a href="<?= BASE_URL . '?act=list-san-pham`' ?>">Sản phẩm</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
                             </ul>
                         </nav>
@@ -102,8 +102,17 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content reviews-tab">
-
                                         <div class="tab-pane fade show active" id="tab_three">
+                                            <?php foreach ($listBinhLuan as $binhLuan) { ?>
+                                            <div class="total-reviews">
+                                                <div class="rev-avatar">
+                                                    <img src="<?= $binhLuan['anh_dai_dien'] ?>" alt="user profile">
+                                                </div>
+
+                                                <div class="review-box">
+                                                    <div class="post-author">
+                                                        <p><span><?= $binhLuan['ho_ten'] ?> -
+                                                            </span><?= $binhLuan['ngay_dang'] ?></p>
                                             <?php foreach ($listBinhLuan as $binhLuan): ?>
                                                 <div class="total-reviews">
                                                     <div class="rev-avatar">
@@ -118,20 +127,47 @@
                                                         <p><?= $binhLuan['noi_dung'] ?></p>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            <div>
+                                                <?php if (isset($_SESSION['success_message'])): ?>
+                                                    <div class="alert alert-success">
+                                                        <?= $_SESSION['success_message'] ?>
+                                                    </div>
+                                                    <?php unset($_SESSION['success_message']); ?>
+                                                <?php endif; ?>
+
+                                                <?php if (isset($_SESSION['error_message'])): ?>
+                                                    <div class="alert alert-danger">
+                                                        <?= $_SESSION['error_message'] ?>
+                                                    </div>
+                                                    <?php unset($_SESSION['error_message']); ?>
+                                                <?php endif; ?>
+
+                                                <label>Bình luận:</label>
+                                            </div>
+                                            
+                                            <?php if(!isset($_SESSION['user_clinet'])) { ?>
+                                                <p class="text-danger text-center">Vui lòng đăng nhập để gửi bình luận</p><br>
+                                            <?php } else { ?>
+                                            <form action="<?= BASE_URL . '?act=gui-binh-luan' ?>" method="POST" class="review-form">
+
                                             <?php endforeach ?>
                                             <form action="#" class="review-form">
                                                 <div class="form-group row">
                                                     <div class="col">
-                                                        <label class="col-form-label"><span class="text-danger">*</span>
-                                                            Nội dung bình luận</label>
-                                                        <textarea class="form-control" required></textarea>
+                                                        <input type="hidden" name="tai_khoan_id" value="<?= $_SESSION['user_client_id'] ?>">
+                                                        <input type="hidden" name="san_pham_id" value="<?= $sanPham['id'] ?>">
+                                                        <textarea placeholder="Bình luận *" id="noi_dung" name="noi_dung" class="form-control" required></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="buttons">
-                                                    <button class="btn btn-sqr" type="submit">Bình luận</button>
+                                                    <button class="btn btn-sqr" type="submit">Gửi bình luận</button>
                                                 </div>
-                                            </form> <!-- end of review-form -->
+                                            </form>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>

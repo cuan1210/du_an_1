@@ -8,7 +8,6 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 
 // Require toàn bộ file Models
-require_once './models/Student.php';
 require_once './models/SanPham.php';
 require_once __DIR__ . '/admin/models/AdminDanhMuc.php';
 require_once './models/TaiKhoan.php';
@@ -38,6 +37,8 @@ match ($act) {
     // Giỏ hàng
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
+    'xoa-gio-hang' => (new HomeController())->deleteGioHang(),
+    
 
     // Thanh toán
     'thanh-toan' => (new HomeController())->thanhToan(),
@@ -45,6 +46,10 @@ match ($act) {
     'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
     'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
     'huy-don-hang' => (new HomeController())->huyDonHang(),
+
+    // Bình luận
+    'gui-binh-luan' => (new HomeController())->guiBinhLuan(),
+    
 
 
 };

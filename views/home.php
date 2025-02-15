@@ -93,14 +93,14 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single_banner mb-30">
                         <div class="banner_thumb">
-                            <a href="<?= BASE_URL . '?act=list-san-pham&danh_muc_id=1' ?>"><img src="assets/img/banner/banner1.png" alt=""></a>
+                            <a href="<?= BASE_URL . '?act=list-san-pham' ?>"><img src="assets/img/banner/banner1.png" alt=""></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="single_banner mb-30">
                         <div class="banner_thumb">
-                            <a href="<?= BASE_URL . '?act=list-san-pham&danh_muc_id=1' ?>"><img src="assets/img/banner/banner2.png" alt=""></a>
+                            <a href="<?= BASE_URL . '?act=list-san-pham' ?>"><img src="assets/img/banner/banner2.png" alt=""></a>
                         </div>
                     </div>
                 </div>

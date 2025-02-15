@@ -92,12 +92,12 @@
                                         <td><?= formatPrice($donHang['tong_tien']) ?></td>
                                     </tr>
 
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Phương thức thanh toán: </th>
                                         <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
                                     </tr>
 
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Trạng thái đơn hàng: </th>
                                         <td><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
                                     </tr>

@@ -130,5 +130,38 @@ class AdminGioHang
             echo "CÓ LỖI:" . $e->getMessage();
         }
     }
+
+    public function getProductGioHang($id)
+    {
+        try {
+            $sql = "SELECT * FROM chi_tiet_gio_hangs WHERE id = :id";
+            
+            $stmt = $this->conn->prepare($sql);
+            
+            $stmt->execute([
+                ':id' => $id
+            ]);
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
+
+    public function deleteProductGioHang($id)
+    {
+        try {
+            $sql = "DELETE FROM chi_tiet_gio_hangs WHERE id = :id";
+            
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
 }
 ?>

@@ -58,7 +58,11 @@
                                                     ?>
                                             </span>
                                         </td>
-                                        <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                        <td class="pro-remove">
+                                            <a href="<?= BASE_URL . '?act=xoa-gio-hang&id=' . $sanPham['id'] ?>">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -68,13 +72,10 @@
                         <div class="cart-update-option d-block d-md-flex justify-content-between">
                             <div class="apply-coupon-wrapper">
                                 <form action="#" method="post" class=" d-block d-md-flex">
-                                    <input type="text" placeholder="Enter Your Coupon Code" required />
+                                    <input type="text" placeholder="Vui lòng nhập mã giảm giá..." required />
                                     <button class="btn btn-sqr">Mã giảm giá</button>
                                 </form>
                             </div>
-                            <!-- <div class="cart-update">
-                                <a href="#" class="btn btn-sqr">Update Cart</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -82,25 +83,20 @@
                     <div class="col-lg-5 ml-auto">
                         <div class="cart-calculator-wrapper">
                             <div class="cart-calculate-items">
-                                <h6>Tổng đơn hàng</h6>
+                                <h6>Tổng hóa đơn</h6>
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <tr>
-                                            <td>Tổng tiền sản phẩm</td>
-                                            <td><?= formatPrice($tongGioHang) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vận chuyển</td>
-                                            <td>30.000đ</td>
-                                        </tr>
                                         <tr class="total">
-                                            <td>Tổng thanh toán</td>
-                                            <td class="total-amount"><?= formatPrice($tongGioHang + 30000) ?></td>
+                                            <td>Tổng tiền giỏ hàng</td>
+                                            <td class="total-amount"><?= formatPrice($tongGioHang) ?></td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
-                            <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Thanh toán</a>
+                            <div class="d-flex justify-content-between">
+                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr" style="width: 48%;">Thanh toán</a>
+                                <a href="<?= BASE_URL ?>" class="btn btn-sqr" style="width: 48%;">Tiếp tục mua sắm</a>
+                            </div>
                         </div>
                     </div>
                 </div>
