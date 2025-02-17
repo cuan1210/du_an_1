@@ -8,6 +8,9 @@ class HomeController
   public $modelTaiKhoan;
   public $modelGioHang;
   public $modelDonHang;
+  public $modelBanner;
+  public $modelTinTuc;
+
 
   public function __construct()
   {
@@ -15,7 +18,8 @@ class HomeController
     $this->danhMuc = new AdminDanhMuc();
     $this->modelTaiKhoan = new AdminTaiKhoan();
     $this->modelGioHang = new AdminGioHang();
-    $this->modelDonHang = new DonHang();
+    $this->modelBanner = new Banner();
+    $this->modelTinTuc = new TinTuc();
   }
 
   public function home()
@@ -23,6 +27,7 @@ class HomeController
     $keyword = $_GET['keyword'] ?? ''; 
     $listDanhMuc = $this->danhMuc->getAllDanhMuc(); 
     $tongDonHang = $this->tongDonHang();
+    $listBanner = $this->modelBanner->getAllBanners();
     if(!empty($keyword)){
         $listSanPham = $this->modelSanPham->searchSanPhamByName($keyword); 
         require_once './views/dssanpham.php'; 
@@ -201,7 +206,8 @@ class HomeController
             if (!$checkSanPham) {
                 $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
             }
-            header ("Location: " . BASE_URL . '?act=gio-hang');
+            header('Location: ' . BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $san_pham_id);
+            die();
         } else {
             $_SESSION['message'] = 'Bạn chưa đăng nhâp.';
             // var_dump($_SESSION['message']);die();
@@ -229,6 +235,8 @@ class HomeController
             } else {
                 $chiTietGioHang = $this->modelGioHang->getDeltailGioHang($gioHang['id']);
             }
+
+            // $tongDonHang = count($chiTietGioHang);
            
             require_once './views/gioHang.php';
         } else {
@@ -502,5 +510,33 @@ class HomeController
 
             return count($chiTietGioHang);
         } 
+    }
+
+    public function gioiThieu()
+    {
+        require_once('./views/gioiThieu.php');
+    }
+
+    public function danhSachTinTuc()
+    {
+        $listTinTuc = $this->modelTinTuc->getAllTinTuc();
+        require_once('./views/tinTuc.php');
+    }
+
+    public function chiTietTinTuc($id)
+    {
+        // Kiểm tra ID hợp lệ trước khi gọi hàm
+        if (!is_numeric($id) || $id < 0) {
+            echo "ID không hợp lệ.";
+            return;
+        }
+        
+        $tinTucDetail = $this->modelTinTuc->getTinTucById($id);
+
+        if ($tinTucDetail) {
+            require_once('./views/chiTietTinTuc.php');
+        } else {
+            echo "Không tìm thấy tin tức.";
+        }
     }
 }

@@ -6,30 +6,14 @@
     <!-- hero slider area start -->
     <section class="slider-area">
         <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
-            <!-- single slider item start -->
-            <div class="hero-single-slide hero-overlay">
-                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/banner1.jpg">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
+                <!-- Lặp qua danh sách banner -->
+                <?php foreach ($listBanner as $banner): ?>
+                <div class="hero-single-slide hero-overlay">
+                    <div class="hero-slider-item bg-img">
+                        <img src="<?= BASE_URL . $banner['hinh_anh'] ?>" style="width: 1990px;">
                     </div>
                 </div>
-            </div>
-            <!-- single slider item start -->
-
-            <!-- single slider item start -->
-            <div class="hero-single-slide hero-overlay">
-                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/banner2.jpg">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- single slider item start -->
-
+            <?php endforeach; ?>
         </div>
     </section>
 
@@ -325,7 +309,7 @@
                 <div class="col-12">
                     <!-- section title start -->
                     <div class="section-title text-center">
-                        <h2 class="title">Tin Tức Hôm Nay</h2>
+                        <h2 class="title">Tin Tức Nổi Bật</h2>
                         
                     </div>
                     <!-- section title start -->
@@ -334,95 +318,54 @@
             <div class="row">
                 <div class="col-12">
                     <div class="blog-carousel-active slick-row-10 slick-arrow-style">
-                        <!-- blog post item start -->
                         <div class="blog-post-item">
                             <figure class="blog-thumb">
-                                <a href="#">
-                                    <img src="assets/img/blog/tin-tuc-1.jpg" alt="blog image">
+                                <a href="https://cellphones.com.vn/sforum/oneplus-13-mini-co-pin-6000-mah" target="_blank">
+                                    <img src="assets/img/blog/tin-tuc-3.jpg" alt="blog image">
                                 </a>
                             </figure>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                    <p>22/02/2025 | <a href="#">PhoneStore</a></p>
+                                    <p>22/02/2025 | <a href="https://cellphones.com.vn/sforum/oneplus-13-mini-co-pin-6000-mah" target="_blank">PhoneStore</a></p>
                                 </div>
                                 <h5 class="blog-title">
-                                    <a href="#">The Gioi Di Dong - Sự Lựa Chọn Thông Minh</a>
+                                    <a href="https://cellphones.com.vn/sforum/oneplus-13-mini-co-pin-6000-mah" target="_blank">OnePlus 13 Mini sẽ có thiết kế nhỏ gọn, pin khủng 6000 mAh</a>
                                 </h5>
                             </div>
                         </div>
-                        <!-- blog post item end -->
 
-                        <!-- blog post item start -->
                         <div class="blog-post-item">
                             <figure class="blog-thumb">
-                                <a href="#">
-                                    <img src="assets/img/blog/tin-tuc-1.jpg" alt="blog image">
+                                <a href="https://cellphones.com.vn/sforum/vivo-v50-ra-mat" target="_blank">
+                                    <img src="assets/img/blog/tin-tuc-2.jpg" alt="blog image">
                                 </a>
                             </figure>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                    <p>22/02/2025 | <a href="#">PhoneStore</a></p>
+                                    <p>22/02/2025 | <a href="https://cellphones.com.vn/sforum/vivo-v50-ra-mat" target="_blank">PhoneStore</a></p>
                                 </div>
                                 <h5 class="blog-title">
-                                    <a href="#">The Gioi Di Dong - Sự Lựa Chọn Thông Minh</a>
+                                    <a href="https://cellphones.com.vn/sforum/vivo-v50-ra-mat" target="_blank">vivo V50 ra mắt: Chip Snapdragon 7 Gen 3, pin 6000 mAh và camera kép 50MP, giá từ 10.27 triệu đồng</a>
                                 </h5>
                             </div>
                         </div>
-                        <!-- blog post item end -->
 
-                        <!-- blog post item start -->
-                        <div class="#">
+                        <div class="blog-post-item">
                             <figure class="blog-thumb">
-                                <a href="#">
-                                    <img src="assets/img/blog/tin-tuc-1.jpg" alt="blog image">
+                                <a href="https://cellphones.com.vn/sforum/oppo-dan-dau-thi-phan-dien-thoai-viet-nam" target="_blank">
+                                    <img src="assets/img/blog/tin-tuc-4.jpg" alt="blog image">
                                 </a>
                             </figure>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                    <p>22/02/2025 | <a href="#">PhoneStore</a></p>
+                                    <p>22/02/2025 | <a href="https://cellphones.com.vn/sforum/oppo-dan-dau-thi-phan-dien-thoai-viet-nam" target="_blank">PhoneStore</a></p>
                                 </div>
                                 <h5 class="blog-title">
-                                    <a href="#">The Gioi Di Dong - Sự Lựa Chọn Thông Minh</a>
+                                    <a href="https://cellphones.com.vn/sforum/oppo-dan-dau-thi-phan-dien-thoai-viet-nam" target="_blank">OPPO vượt mặt Samsung, dẫn đầu thị phần Việt Nam và toàn Đông Nam Á!</a>
                                 </h5>
                             </div>
                         </div>
-                        <!-- blog post item end -->
 
-                        <!-- blog post item start -->
-                        <div class="#">
-                            <figure class="blog-thumb">
-                                <a href="#">
-                                    <img src="assets/img/blog/tin-tuc-1.jpg" alt="blog image">
-                                </a>
-                            </figure>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <p>22/02/2025 | <a href="#">PhoneStore</a></p>
-                                </div>
-                                <h5 class="blog-title">
-                                    <a href="#">The Gioi Di Dong - Sự Lựa Chọn Thông Minh</a>
-                                </h5>
-                            </div>
-                        </div>
-                        <!-- blog post item end -->
-
-                        <!-- blog post item start -->
-                        <div class="#">
-                            <figure class="blog-thumb">
-                                <a href="#">
-                                    <img src="assets/img/blog/tin-tuc-1.jpg" alt="blog image">
-                                </a>
-                            </figure>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <p>22/02/2025 | <a href="#">PhoneStore</a></p>
-                                </div>
-                                <h5 class="blog-title">
-                                    <a href="#">The Gioi Di Dong - Sự Lựa Chọn Thông Minh</a>
-                                </h5>
-                            </div>
-                        </div>
-                        <!-- blog post item end -->
                     </div>
                 </div>
             </div>

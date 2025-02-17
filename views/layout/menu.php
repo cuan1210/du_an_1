@@ -28,13 +28,11 @@
                                             <li><a href="?act=trangchu">Trang chủ</i></a>
 
                                             </li>
-                                            <li><a href="#">Giới thiệu</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=gioi-thieu' ?>">Giới thiệu</a></li>
 
                                             <li><a href="?act=list-san-pham">Sản phẩm</a>
 
-                                            </li>
-
-                                            <li><a href="#">Tin tức</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=tin-tuc' ?>">Tin tức</a></li>
 
                                             <li><a href="#">Liên hệ</a></li>
 
@@ -49,18 +47,26 @@
                         <!-- mini cart area start -->
                         <div class="col-lg-5">
                             <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                            <div class="header-configure-area">
+                                <div class="header-search-container">
+                                    <form action="" method="GET" class="d-flex">
+                                        <input type="text" name="keyword" class="form-control"
+                                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>"
+                                            placeholder="Tìm kiếm sản phẩm..." required>
+                                        <button type="submit" class="btn btn-primary ms-2">Tìm</button>
+                                    </form>
+                                </div>
+
+                                <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
                                         <li class="user-hover">
+                                            <label for="">
+                                                <?php 
+                                                    if (isset($_SESSION['user_clinet'])) {
+                                                    echo $_SESSION['user_clinet'];
+                                                } ?>
+                                            </label>
                                             <a href="#">
-                                                <div class="text-center">
                                                     <i class="pe-7s-user"></i>
-                                                </div>
-                                                <div class="user-email" style="font-size: 14px; color: #333;">
-                                                    <?php if (isset($_SESSION['user_clinet'])) {
-                                                        echo $_SESSION['user_clinet'];
-                                                    } ?>
-                                                </div>
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_clinet'])) { ?>
@@ -77,21 +83,22 @@
                                                 <?php } ?>
                                             </ul>
                                         </li>
+
                                         <li>
-                                            <a href="<?= BASE_URL ?>?act=gio-hang" class="minicart-btn">
-                                                <i class="fa fa-cart-plus"></i>(<?= isset($tongDonHang) ? $tongDonHang : 0 ?>)
-                                            </a>
+                                            <?php if (!isset($_SESSION['user_clinet'])) { ?>
+                                                    <a href="<?= BASE_URL . '?act=gio-hang' ?>">
+                                                        <i class="pe-7s-shopbag"></i>
+                                                    </a>
+                                                <?php } else { ?>
+                                                    <a href="<?= BASE_URL ?>?act=gio-hang" class="minicart-btn" style="position: relative; display: inline-block; padding-right: 20px;">
+                                                        <i class="pe-7s-shopbag"></i>
+                                                        <span style="position: absolute; top: 0; right: 0; font-size: 12px; padding: 2px 5px; background-color: #f0f0f0; border-radius: 3px; white-space: nowrap;">
+                                                            (<?= isset($tongDonHang) ? $tongDonHang : 0 ?>)
+                                                        </span>
+                                                    </a>
+                                                <?php } ?>
                                         </li>
                                     </ul>
-                                </div>
-
-                                <div class="header-search-container">
-                                    <form action="" method="GET" class="d-flex">
-                                        <input type="text" name="keyword" class="form-control"
-                                            value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>"
-                                            placeholder="Tìm kiếm sản phẩm..." required>
-                                        <button type="submit" class="btn btn-primary ms-2">Tìm</button>
-                                    </form>
                                 </div>
 
                                 

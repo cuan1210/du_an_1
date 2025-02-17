@@ -138,7 +138,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td>Tổng tiền</td>
+                                                <td>Tạm tính</td>
                                                 <td><strong><?= formatPrice($tongGioHang); ?></strong></td>
                                             </tr>
                                             <tr>
@@ -150,7 +150,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Tổng đơn hàng</td>
+                                                <td>Tổng tiền thanh toán</td>
                                                 <input type="hidden" name="tong_tien" value="<?= $tongGioHang + 30000 ?>">
                                                 <td><strong><?= formatPrice($tongGioHang + 30000); ?></strong></td>
                                             </tr>
@@ -159,32 +159,29 @@
                                 </div>
                                 <!-- Order Payment Method -->
                                 <div class="order-payment-method">
-                                    <div class="single-payment-method show">
-                                        <div class="payment-method-name">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="cashon" value="1" name="phuong_thuc_thanh_toan_id"
-                                                    class="custom-control-input" checked />
-                                                <label class="custom-control-label" for="cashon">Thanh toán khi nhận
-                                                    hàng</label>
-                                            </div>
-                                        </div>
-                                        <div class="single-payment-method">
+                                    <div class="single-payment-method show" style="margin-bottom: 10px;">
                                             <div class="payment-method-name">
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="directbank" value="2" name="phuong_thuc_thanh_toan_id"
-                                                        class="custom-control-input" />
+                                                    <input type="radio" id="cashon" value="1" name="phuong_thuc_thanh_toan_id" class="custom-control-input" checked />
+                                                    <label class="custom-control-label" for="cashon">Thanh toán khi nhận hàng</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="single-payment-method" style="margin-bottom: 10px;">
+                                            <div class="payment-method-name">
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="directbank" value="2" name="phuong_thuc_thanh_toan_id" class="custom-control-input" />
                                                     <label class="custom-control-label" for="directbank">thanh toán online</label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="summary-footer-area">
-                                            <!-- <div class="custom-control custom-checkbox mb-20">
-                                                <input type="checkbox" class="custom-control-input" id="terms" required />
-                                                <label class="custom-control-label" for="terms">
-                                                        Xác nhận đặt hàng
-                                                </label>
-                                            </div> -->
-                                            <button type="submit" class="btn btn-sqr">Tiến hành đặt hàng</button>
+                                        
+                                        <div class="summary-footer-area d-flex justify-content-between align-items-center">
+                                            <a href="<?= BASE_URL . '?act=gio-hang' ?>" class="btn btn-sqr">
+                                                Quay về giỏ hàng
+                                            </a>
+                                            <button type="submit" class="btn btn-sqr">Đặt hàng</button>
                                         </div>
                                     </div>
                                 </div>

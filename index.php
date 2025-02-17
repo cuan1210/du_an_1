@@ -13,6 +13,8 @@ require_once __DIR__ . '/admin/models/AdminDanhMuc.php';
 require_once './models/TaiKhoan.php';
 require_once './models/GioHang.php';
 require_once './models/DonHang.php';
+require_once './models/Banner.php';
+require_once './models/TinTuc.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -25,6 +27,7 @@ match ($act) {
     'trangchu' => (new HomeController())->home(),
     'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham($_GET['id'] ?? 0),
     'list-san-pham' => (new HomeController())->dssanpham(),
+    'gioi-thieu' => (new HomeController())->gioiThieu(),
     // 'danh-sach-san-pham' => (new HomeController())->danhSachSanPham(),
 
     //đăng kí đăng nhập client
@@ -50,6 +53,9 @@ match ($act) {
     // Bình luận
     'gui-binh-luan' => (new HomeController())->guiBinhLuan(),
     
+    // Tin tức
+    'tin-tuc' => (new HomeController())->danhSachTinTuc(),
+    'chi-tiet-tin-tuc' => (new HomeController())->chiTietTinTuc($_GET['id'] ?? null),
 
 
 };
