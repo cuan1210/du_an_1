@@ -32,8 +32,8 @@
                                 <address class="contact-block">
                                     <ul>
                                         <li><i class="pe-7s-home"></i> Số 1 - Đường Trịnh Văn Bô</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">nhom3du1@gmail.com </a></li>
-                                        <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">012345678</a></li>
+                                        <li><i class="pe-7s-mail"></i> <a href="#">nhom3du1@gmail.com </a></li>
+                                        <li><i class="pe-7s-call"></i> <a href="#">012345678</a></li>
                                     </ul>
                                 </address>
                             </div>
@@ -41,28 +41,26 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Information</h6>
+                            <h6 class="widget-title">Các chính sách và hỗ trợ</h6>
                             <div class="widget-body">
                                 <ul class="info-list">
-                                    <li><a href="#">about us</a></li>
-                                    <li><a href="#">Delivery Information</a></li>
-                                    <li><a href="#">privet policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">contact us</a></li>
-                                    <li><a href="#">site map</a></li>
+                                    <li><a href="#">đổi trả</a></li>
+                                    <li><a href="#">bảo hành</a></li>
+                                    <li><a href="#">giao hàng</a></li>
+                                    <li><a href="#">trả góp</a></li>
+                                    <li><a href="#">bảo mật</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Follow Us</h6>
+                            <h6 class="widget-title">Đăng ký để nhận thông tin</h6>
                             <div class="widget-body social-link">
                                 <form class="newsletter-inner" id="mc-form">
                                     <input type="email" class="news-field" id="mc-email" autocomplete="off" placeholder="Enter your email address">
-                                    <button class="news-btn" id="mc-submit">Subscribe</button>
-                                </form>
-                                
+                                    <button class="news-btn" id="mc-submit">Đăng ký</button>
+                                </form>             
                             </div>
                         </div>
                     </div>
@@ -77,14 +75,14 @@
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-youtube"></i></a> -->
-                        <!-- <div class="footer-payment">
+                        <div class="footer-payment">
                             <img src="assets/img/payment.png" alt="payment method">
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <!-- <div class="footer-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -94,7 +92,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </footer>
     <!-- footer area end -->
 

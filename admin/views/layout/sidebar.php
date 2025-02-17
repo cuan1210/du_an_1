@@ -58,8 +58,22 @@
 
           <li class="nav-item">
             <a href="<?= BASE_URL_ADMIN . '?act=quan-ly-binh-luan' ?>" class="nav-link">
-            <i class="nav-icon fas fa-file-invoice-dollar"></i>
+            <i class="nav-icon fas fa-comments"></i>
               <p>Quản lý bình luận</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN . '?act=banner' ?>" class="nav-link">
+            <i class="nav-icon fas fa-images"></i>
+              <p>Quản lý banner</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN . '?act=tin-tuc' ?>" class="nav-link">
+            <i class="nav-icon fas fa-newspaper"></i>
+              <p>Quản lý tin tức</p>
             </a>
           </li>
 

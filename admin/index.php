@@ -14,6 +14,8 @@ require_once './controllers/AdminDashboardController.php';
 require_once './controllers/AdminTaiKhoanController.php';
 require_once './controllers/AdminDonHangController.php';
 require_once './controllers/AdminBinhLuanController.php';
+require_once './controllers/AdminBannerController.php';
+require_once './controllers/AdminTinTucController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
@@ -21,7 +23,8 @@ require_once './models/AdminSanPham.php';
 require_once './models/AdminTaiKhoan.php';
 require_once './models/AdminDonHang.php';
 require_once './models/AdminBinhLuan.php';
-
+require_once './models/AdminBanner.php';
+require_once './models/AdminTinTuc.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -82,4 +85,20 @@ match ($act) {
     'quan-ly-binh-luan' => (new AdminBinhLuanController())->danhSachBinhLuan(),
     'danh-sach-binh-luan' => (new AdminBinhLuanController())->danhSachDetailBinhLuan(),
     'xoa-binh-luan' => (new AdminBinhLuanController())->deleteBinhLuan(),
+
+    // Route quản lí banner
+    'banner' => (new AdminBannerController())->danhSachBanner(),
+    'form-them-banner' => (new AdminBannerController())->formAddBanner(),
+    'them-banner' => (new AdminBannerController())->postAddBanner(),
+    'form-sua-banner' => (new AdminBannerController())->formEditBanner(),
+    'sua-banner' => (new AdminBannerController())->postEditBanner(),
+    'xoa-banner' => (new AdminBannerController())->deleteBanner(),
+
+    // Route quản lí tin tức
+    'tin-tuc' => (new AdminTinTucController())->danhSachTinTuc(),
+    'form-them-tin-tuc' => (new AdminTinTucController())->formAddTinTuc(),
+    'them-tin-tuc' => (new AdminTinTucController())->postAddTinTuc(),
+    'form-sua-tin-tuc' => (new AdminTinTucController())->formEditTinTuc(),
+    'sua-tin-tuc' => (new AdminTinTucController())->postEditTinTuc(),
+    'xoa-tin-tuc' => (new AdminTinTucController())->deleteTinTuc(),
 };
