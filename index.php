@@ -15,6 +15,8 @@ require_once './models/GioHang.php';
 require_once './models/DonHang.php';
 require_once './models/Banner.php';
 require_once './models/TinTuc.php';
+require_once './models/LienHe.php';
+
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -37,6 +39,12 @@ match ($act) {
     'check-register' => (new HomeController())->postRegister(),
     'logout-clinet' => (new HomeController())->Logout(),
 
+    // thông tin chi tiết khách hàng
+    'chi-tiet-khach-hang' => (new HomeController())->chiTietKhachHang(),
+    'sua-khach-hang' => (new HomeController())->suaKhachHang(),
+    'doi-mat-khau-khach-hang' => (new HomeController())->doiMatKhauKhachHang(),
+
+
     // Giỏ hàng
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
@@ -56,6 +64,10 @@ match ($act) {
     // Tin tức
     'tin-tuc' => (new HomeController())->danhSachTinTuc(),
     'chi-tiet-tin-tuc' => (new HomeController())->chiTietTinTuc($_GET['id'] ?? null),
+
+    // Liên hệ
+    'lien-he' => (new HomeController())->lienHe(),
+    'them-lien-he' => (new HomeController())->postAddLienHe(),
 
 
 };

@@ -34,7 +34,7 @@
 
                                             <li><a href="<?= BASE_URL . '?act=tin-tuc' ?>">Tin tức</a></li>
 
-                                            <li><a href="#">Liên hệ</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=lien-he' ?>">Liên hệ</a></li>
 
                                         </ul>
                                     </nav>
@@ -73,7 +73,7 @@
                                                     <li><a href="<?= BASE_URL . '/?act=login' ?>">Đăng Nhập</a></li>
                                                     <li><a href="<?= BASE_URL . '/?act=register' ?>">Đăng Ký</a></li>
                                                 <?php } else { ?>
-                                                    <li><a href="<?= BASE_URL . '/?act=form-sua-thong-tin' ?>">Tài Khoản</a>
+                                                    <li><a href="<?= BASE_URL . '/?act=chi-tiet-khach-hang' ?>">Tài Khoản</a>
                                                     </li>
                                                     <li><a href="<?= BASE_URL . '/?act=lich-su-mua-hang' ?>">Đơn Hàng</a>
                                                     </li>

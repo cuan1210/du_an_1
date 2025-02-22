@@ -10,7 +10,7 @@ class HomeController
   public $modelDonHang;
   public $modelBanner;
   public $modelTinTuc;
-
+  public $modelLienHe;
 
   public function __construct()
   {
@@ -18,8 +18,10 @@ class HomeController
     $this->danhMuc = new AdminDanhMuc();
     $this->modelTaiKhoan = new AdminTaiKhoan();
     $this->modelGioHang = new AdminGioHang();
+    $this->modelDonHang = new DonHang();
     $this->modelBanner = new Banner();
     $this->modelTinTuc = new TinTuc();
+    $this->modelLienHe = new LienHe();
   }
 
   public function home()
@@ -172,7 +174,127 @@ class HomeController
             exit();
         }
     }
+    
+    public function chiTietKhachHang()
+    {
+        $email = $_SESSION['user_clinet'];
+        // var_dump($email);die();
+        $listTaiKhoan = $this->modelTaiKhoan->getTaiKhoanformEmail($email);
+        // var_dump($listTaiKhoan);die();
+        require_once './views/chiTietKhachHang.php';
+    }
 
+    public function suaKhachHang()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'  && isset($_SESSION['user_clinet'])) {
+            // Lấy dữ liệu
+            $id = $_POST['id'];
+            $ho_ten = $_POST['ho_ten'];
+            $email = $_POST['email'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
+            $gioi_tinh = $_POST['gioi_tinh'];
+            $ngay_sinh = $_POST['ngay_sinh'];
+            $anh_dai_dien = $_FILES['anh_dai_dien'] ?? null;
+
+            // var_dump($_POST);die();
+            
+            // Validate
+            $errors = [];
+            if (empty($ho_ten)) {
+                $errors['ho_ten'] = 'Tên không được để trống';
+            }
+            if (empty($email)) {
+                $errors['email'] = 'Email không được để trống';
+            }
+            if (empty($so_dien_thoai)) {
+                $errors['so_dien_thoai'] = 'Số điện thoại không được để trống';
+            }
+            if (empty($gioi_tinh)) {
+                $errors['gioi_tinh'] = 'Giới tính không được để trống';
+            }
+            if (empty($ngay_sinh)) {
+                $errors['ngay_sinh'] = 'Ngày sinh không được để trống';
+            }
+
+            $_SESSION['errors'] = $errors;
+
+            $boSuuTapOld = $this->modelTaiKhoan->getIdTaiKhoan($id);
+            $old_file = $boSuuTapOld['anh_dai_dien'];
+
+            if (is_array($anh_dai_dien) && isset($anh_dai_dien['error']) && $anh_dai_dien['error'] == UPLOAD_ERR_OK) {
+                $new_file = uploadFile($anh_dai_dien, './uploads/anhkhachhang/');
+                // var_dump($new_file);die;
+                if (!empty($old_file)) {
+                    deleteFile($old_file);
+                }
+            } else {
+                $new_file = $old_file;
+            }
+
+            if (empty($errors)) {
+                $this->modelTaiKhoan->updatekhachHang($id, $ho_ten, $email, $so_dien_thoai, $gioi_tinh, $ngay_sinh, $new_file);
+
+                $_SESSION['success'] = 'Cập nhật thông tin thành công.';
+
+                header('Location: ' . BASE_URL . '?act=chi-tiet-khach-hang');
+                exit();
+            } else {
+                $formLoi = [
+                    'id' => $id,
+                    'ho_ten' => $ho_ten,
+                    'email' => $email,
+                    'so_dien_thoai' => $so_dien_thoai,
+                    'gioi_tinh' => $gioi_tinh,
+                    'ngay_sinh' => $ngay_sinh,
+                    'anh_dai_dien' => $anh_dai_dien
+                ];
+
+                header('Location: ' . BASE_URL . '?act=chi-tiet-khach-hang');
+                exit();
+            }
+        }
+    }
+
+    public function doiMatKhauKhachHang()
+    {   
+        $email = $_SESSION['user_clinet'];
+        $listTaiKhoan = $this->modelTaiKhoan->getTaiKhoanformEmail($email);
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_clinet'])) {
+            $id = $_POST['id'];
+            $mat_khau = $_POST['mat_khau'];
+            $mat_khau_moi = $_POST['mat_khau_moi'];
+            $nhap_lai_mat_khau_moi = $_POST['nhap_lai_mat_khau_moi'];
+
+            $errors = [];
+            if (empty($mat_khau)) {
+                $errors['mat_khau'] = 'Mật khẩu cũ không được để trống';
+            } elseif (!password_verify($mat_khau, $listTaiKhoan['mat_khau'])) {
+                $errors['mat_khau'] = 'Mật khẩu cũ không chính xác';
+            }
+
+            if (empty($mat_khau_moi)) {
+                $errors['mat_khau_moi'] = 'Mật khẩu mới không được để trống';
+            } elseif ($mat_khau_moi != $nhap_lai_mat_khau_moi) {
+                $errors['nhap_lai_mat_khau_moi'] = 'Nhập lại mật khẩu mới không khớp';
+            }
+
+            $_SESSION['errors'] = $errors;
+
+            if (empty($errors)) {
+                $this->modelTaiKhoan->updateMatKhau($id, $mat_khau_moi);
+
+                $_SESSION['success'] = 'Đổi mật khẩu thành công.';
+
+                header('Location: ' . BASE_URL . '?act=doi-mat-khau-khach-hang');
+                exit();
+            }
+        }
+
+        require_once './views/formDoiMatKhauKhachHang.php';
+    }
+
+    // Xử lý controllers giỏ hàng, thanh toán, lịch sử mua hàng
     public function addGioHang()
     {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -358,6 +480,20 @@ class HomeController
                         $item['so_luong'], 
                         $donGia * $item['so_luong'] 
                     );
+
+                    $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
+                    if ($soLuongHienTai < $item['so_luong']) {
+                        var_dump("Không đủ số lượng trong kho sản phẩm: " . $item['ten_san_pham']);
+                        die();
+                    }
+
+                    // Giảm số lượng trên database
+                    $capNhatSoLuong = $this->modelSanPham->giamSoLuong($item['san_pham_id'], $item['so_luong']);
+                    if (!$capNhatSoLuong) {
+                        $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
+                        var_dump("Không cập nhật được kho cho sản phẩm: " . $item['ten_san_pham']);
+                        die();
+                    }
                 }
 
                 // Sau khi thêm xog phải tiến hàng xóa sản phẩm trong giỏ hàng
@@ -539,4 +675,68 @@ class HomeController
             echo "Không tìm thấy tin tức.";
         }
     }
+
+    public function lienHe()
+    {
+        require_once('./views/lienHe.php');
+    }
+
+    public function postAddLienHe()
+    {
+        if (isset($_SESSION['user_clinet'])) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $ho_ten = $_POST['ho_ten'];
+                $email = $_POST['email'];
+                $so_dien_thoai = $_POST['so_dien_thoai'];
+                $chu_de_lien_he = $_POST['chu_de_lien_he'];
+                $noi_dung = $_POST['noi_dung'];
+                $tai_khoan_id = $_SESSION['user_client_id'];
+
+                $errors = [];
+                if (empty($ho_ten)) {
+                    $errors['ho_ten'] = 'Họ tên không được để trống';
+                }
+                if (empty($email)) {
+                    $errors['email'] = 'Email không được để trống';
+                }
+                if (empty($so_dien_thoai)) {
+                    $errors['so_dien_thoai'] = 'Số điện thoại không được để trống';
+                }
+                if (empty($chu_de_lien_he)) {
+                    $errors['chu_de_lien_he'] = 'Chủ đề liên hệ không được để trống';
+                }
+                if (empty($noi_dung)) {
+                    $errors['noi_dung'] = 'Nội dung không được để trống';
+                }
+
+                $_SESSION['errors'] = $errors;
+
+                if (empty($errors) && $tai_khoan_id !== null) {
+                    $result = $this->modelLienHe->insertLienHe(
+                        $tai_khoan_id,
+                        $ho_ten,
+                        $email,
+                        $so_dien_thoai,
+                        $chu_de_lien_he,
+                        $noi_dung
+                    );
+
+                    if ($result) {
+                        $_SESSION['success_message'] = 'Gửi liên hệ thành công!';
+                        header('Location: ' . BASE_URL . '?act=lien-he');
+                        exit();
+                    } else {
+                        header('Location: ' . BASE_URL . '?act=lien-he');
+                        exit();
+                    }
+                }
+            }
+        } else {
+            $_SESSION['errors'] = 'Vui lòng đăng nhập trước khi gửi liên hệ!';
+            header('Location: ' . BASE_URL . '?act=login');
+            exit();
+        }
+    }
+
+
 }

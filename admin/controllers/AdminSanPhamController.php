@@ -87,6 +87,7 @@ class AdminSanPhamController
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        
         if ($sanPham) {
             require_once './views/sanpham/editSanPham.php';
             deleteSessionError();
@@ -179,11 +180,9 @@ class AdminSanPhamController
         $id = $_GET['id_san_pham'];
 
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
-
-
         $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id); 
 
-        // var_dump($listAnhSanPham);die;
+        // var_dump($listBinhLuan);die;
         if ($sanPham) {
             require_once './views/sanpham/detailSanPham.php';
         } else {

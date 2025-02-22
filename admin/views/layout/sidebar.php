@@ -78,6 +78,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN . '?act=lien-he' ?>" class="nav-link">
+            <i class="nav-icon fas fa-id-badge"></i>
+              <p>Quản lý liên hệ</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p style="color: white;">Quản Lý Người Dùng</p>
