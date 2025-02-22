@@ -2,7 +2,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Nhóm 3-Dự án1</b>
     </div>
-    <strong>PhoneStore</strong> 
+    <strong>2025 Cao Đẳng FPT POLYTECHNIC </strong> 
   </footer>
 
   <!-- Control Sidebar -->

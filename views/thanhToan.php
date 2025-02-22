@@ -137,10 +137,10 @@
                                             <?php endforeach; ?>
                                         </tbody>
                                         <tfoot>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>Tạm tính</td>
                                                 <td><strong><?= formatPrice($tongGioHang); ?></strong></td>
-                                            </tr>
+                                            </tr> -->
                                             <tr>
                                                 <td>Vận chuyển</td>
                                                 <td class="d-flex justify-content-center">

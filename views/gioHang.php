@@ -41,8 +41,9 @@
                                             </span>
                                         </td>
                                         <td class="pro-quantity">
-                                            <div class="pro-qty"><input type="text" value="<?= $sanPham['so_luong'] ?>">
-                                            </div>
+                                                <div class="">
+                                                    <span><?= $sanPham['so_luong'] ?></span>
+                                                </div>
                                         </td>
                                         <td class="pro-subtotal">
                                             <span>
@@ -67,15 +68,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                        </div>
-
-                        <div class="cart-update-option d-block d-md-flex justify-content-between">
-                            <div class="apply-coupon-wrapper">
-                                <form action="#" method="post" class=" d-block d-md-flex">
-                                    <input type="text" placeholder="Vui lòng nhập mã giảm giá..." required />
-                                    <button class="btn btn-sqr">Mã giảm giá</button>
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -5,8 +5,6 @@ require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
 // checkLoginAdmin()
 
-// checkLoginAdmin();
-
 // Require toàn bộ file Controllers
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
@@ -16,6 +14,7 @@ require_once './controllers/AdminDonHangController.php';
 require_once './controllers/AdminBinhLuanController.php';
 require_once './controllers/AdminBannerController.php';
 require_once './controllers/AdminTinTucController.php';
+require_once './controllers/AdminLienHeController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
@@ -25,14 +24,13 @@ require_once './models/AdminDonHang.php';
 require_once './models/AdminBinhLuan.php';
 require_once './models/AdminBanner.php';
 require_once './models/AdminTinTuc.php';
+require_once './models/AdminLienHe.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
 if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
     checkLoginAdmin();
 }
-
-// Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
@@ -59,6 +57,11 @@ match ($act) {
     'from-edit-khach-hang' => (new AdminTaiKhoanController())->fromEditKhachHang(),
     'edit-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+
+    // router quản lý tài khoản cá nhân(quản trị)
+    'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditTaiKhoanCaNhan(),
+    'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
+    'sua-mat-khau-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditMatKhauCaNhanQuanTri(),
 
      // route auth
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
@@ -101,4 +104,10 @@ match ($act) {
     'form-sua-tin-tuc' => (new AdminTinTucController())->formEditTinTuc(),
     'sua-tin-tuc' => (new AdminTinTucController())->postEditTinTuc(),
     'xoa-tin-tuc' => (new AdminTinTucController())->deleteTinTuc(),
+
+    // Route quản lí liên hệ
+    'lien-he' => (new AdminLienHeController())->danhSachLienHe(),
+    'form-sua-lien-he' => (new AdminLienHeController())->formEditLienHe(),
+    'sua-lien-he' => (new AdminLienHeController())->postEditLienHe(),
+    'xoa-lien-he' => (new AdminLienHeController())->deleteLienHe(),
 };

@@ -201,5 +201,82 @@ class AdminTaiKhoan
             echo "Lỗi" . $e->getMessage();
         }
     }
+
+    public function getIdTaiKhoan($id)
+    {
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
+    public function updatekhachHang($id, $ho_ten, $email, $so_dien_thoai, $gioi_tinh, $ngay_sinh, $anh_dai_dien)
+    {
+        try {
+            $sql = "UPDATE tai_khoans 
+                    SET ho_ten = :ho_ten,
+                        email = :email, 
+                        ngay_sinh = :ngay_sinh, 
+                        so_dien_thoai = :so_dien_thoai,
+                        gioi_tinh = :gioi_tinh, 
+                        anh_dai_dien = :anh_dai_dien
+                    WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // Truyền tham số
+            $stmt->execute([
+                ':ho_ten' => $ho_ten,
+                ':email' => $email,
+                ':ngay_sinh' => $ngay_sinh,
+                ':so_dien_thoai' => $so_dien_thoai,
+                ':gioi_tinh' => $gioi_tinh,
+                ':anh_dai_dien' => $anh_dai_dien,
+                ':id' => $id,
+            ]);
+
+            // Kiểm tra nếu có dòng nào bị ảnh hưởng
+            if ($stmt->rowCount() > 0) {
+                return true; // Thành công
+            } else {
+                // Nếu không có dòng nào bị thay đổi (có thể dữ liệu không thay đổi)
+                return false;
+            }
+        } catch (Exception $e) {
+            // Nếu có lỗi, in ra thông báo lỗi chi tiết
+            error_log("Lỗi Cập Nhật: " . $e->getMessage());  // Ghi vào log để kiểm tra
+            return false;
+        }
+    }
+
+    public function updateMatKhau($id, $mat_khau_moi)
+    {
+        try {
+            $sql = "UPDATE tai_khoans 
+                    SET mat_khau = :mat_khau_moi
+                    WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            // Truyền tham số
+            $stmt->execute([
+                ':mat_khau_moi' => password_hash($mat_khau_moi, PASSWORD_DEFAULT),   // Hash mật khẩu trước khi lưu
+                ':id' => $id,
+            ]);
+
+            return true;
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        }
+    }
 }
 ?>
