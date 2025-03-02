@@ -27,7 +27,7 @@
             <div class="row g-5">
                 <div class="col-md-6">
                     <h5 class="mb-3 text-secondary">Thông tin liên hệ</h5>
-                    <ul class="list-unstyled fs-5">
+                    <ul class="list-unstyled fs-5">`
                         <li class="mb-2">Số 1 - Trịnh Văn Bô</li>
                         <li class="mb-2">0354549424</li>
                         <li class="mb-2">nhom3du1@gmail.com</li>

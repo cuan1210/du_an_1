@@ -328,7 +328,7 @@ class HomeController
             if (!$checkSanPham) {
                 $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
             }
-            header('Location: ' . BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $san_pham_id);
+            header('Location: ' . BASE_URL . '?act=gio-hang');
             die();
         } else {
             $_SESSION['message'] = 'Bạn chưa đăng nhâp.';

@@ -13,11 +13,13 @@ class AdminSanPham
     {
         try {
             $sql = "SELECT DISTINCT san_phams.*, danh_mucs.ten_danh_muc FROM san_phams
-    INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
+            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id";
 
             $stmt = $this->conn->prepare($sql);
+
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về dữ liệu không trùng
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
         }
